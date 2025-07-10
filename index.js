@@ -5,8 +5,7 @@ const cors = require('cors');
 const app = express();
 const server = require('http').createServer(app);
 
-app.use(cors());
-app.options('*',cors());
+
 
 const io = require('socket.io')(server,{
   cors:{
@@ -90,6 +89,7 @@ const { adminRoutes } = require('./routes/admin');
 const PORT = process.env.PORT;
 
 app.use(cors());
+app.options('*',cors());
 app.use(express.json({extended:false}));
 app.use(express.urlencoded({extended: false}));
 app.use('/uploads', express.static('uploads'));
