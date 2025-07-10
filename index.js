@@ -4,6 +4,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const server = require('http').createServer(app);
+
+
+
+app.use(cors());
+app.options('*',cors());
+
 const io = require('socket.io')(server,{
   cors:{
     origin: '*', 
